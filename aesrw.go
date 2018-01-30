@@ -232,7 +232,6 @@ func NewReader(r io.Reader, k []byte) (*AESReader, error) {
 	//Create a new block cipher from the key and IV
 	blk, err := aes.NewCipher(k)
 	mde := cipher.NewCBCDecrypter(blk, tmpBlock)
-
 	return &AESReader{ds: br, rem: make([]byte, aes.BlockSize), block: blk, mode: mde}, nil
 }
 
@@ -314,5 +313,3 @@ func Min(a, b int) int {
 	}
 	return b
 }
-
-
